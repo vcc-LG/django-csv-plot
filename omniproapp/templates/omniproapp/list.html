@@ -4,8 +4,6 @@
         <meta charset="utf-8">
         <title>Profile upload</title>
         {% load static %}
-        <script type="text/javascript" src={% static "js/d3.min.js"%}></script>
-
     </head>
 
     <body>
@@ -13,7 +11,7 @@
         {% if documents %}
             <ul>
                 {% for document in documents %}
-                    <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+                    <li><a href="{{ document.baseline_file.url }}">{{ document.baseline_file.name }}</a></li>
                 {% endfor %}
             </ul>
         {% else %}
@@ -25,11 +23,11 @@
             {% csrf_token %}
             <p>{{ form.non_field_errors }}</p>
 
-            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+            <p>{{ form.baseline_file.label_tag }} {{ form.baseline_file.help_text }}</p>
 
             <p>
-                {{ form.docfile.errors }}
-                {{ form.docfile }}
+                {{ form.baseline_file.errors }}
+                {{ form.baseline_file }}
             </p>
 
             <p><input type="submit" value="Upload"/></p>

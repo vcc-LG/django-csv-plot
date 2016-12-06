@@ -1,4 +1,7 @@
 from django.db import models
 
-class Document(models.Model):
-    docfile = models.FileField(upload_to='documents/%Y%m%d')
+class BaselineProfileModel(models.Model):
+    baseline_file = models.FileField(upload_to='baselines/%Y%m%d', null=True)
+
+class MeasuredProfileModel(models.Model):
+    measurement_file = models.FileField(upload_to='measurements/%Y%m%d', null=True)
